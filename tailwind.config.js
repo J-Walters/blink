@@ -1,16 +1,16 @@
 module.exports = {
   mode: 'jit',
-  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   content: [],
   theme: {
     extend: {
       fontFamily: {
-        mallanna: ["Mallanna"]
-      }
+        mallanna: ['Mallanna'],
+      },
     },
   },
   variants: {
-    extend: {}
+    extend: {},
   },
   plugins: [],
-}
+};
