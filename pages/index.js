@@ -1,5 +1,6 @@
 import NavBar from '../components/NavBar';
 import Timer from '../components/Timer';
+import About from '../components/About';
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
       <div className='max-w-2xl min-h-screen mx-auto'>
         <NavBar />
         <Timer />
+        <About />
       </div>
     </div>
   );

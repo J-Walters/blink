@@ -3,6 +3,7 @@ export default function Timer() {
 
   return (
     <div className='text-[#E5E5E5] w-10/12 mx-auto pt-5 flex flex-col justify-center items-center mt-10'>
+      {/* <div className='flex flex-col justify-center items-center bg-gray-500 bg-opacity-30 py-10 px-20 rounded-md'> */}
       <div className='flex gap-5 items-center'>
         {options.map((option, index) => {
           return (
@@ -18,11 +19,12 @@ export default function Timer() {
         })}
       </div>
       <div className='mt-10 mb-10'>
-        <h1 className='text-8xl font-bold select-none m-0'>20:00</h1>
+        <h1 className='text-8xl font-bold select-none m-0 '>20:00</h1>
       </div>
-      <button className='px-16 py-2 text-2xl rounded-md bg-[#E5E5E5] text-[#3969A0] uppercase drop-shadow-lg'>
+      <button className='px-16 py-2 text-2xl rounded-md bg-[#E5E5E5] text-[#3969A0] uppercase'>
         Start
       </button>
+      {/* </div> */}
     </div>
   );
 }
