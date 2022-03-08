@@ -1,4 +1,4 @@
-export default function Timer({ stage, switchStage, getTickingTime }) {
+export default function Timer({ stage, switchStage, getTickingTime, seconds }) {
   const options = ['Timer', 'Short Break', 'Long Break'];
 
   return (
@@ -21,7 +21,8 @@ export default function Timer({ stage, switchStage, getTickingTime }) {
       </div>
       <div className='mt-10 mb-10'>
         <h1 className='text-8xl font-bold select-none m-0 '>
-          {getTickingTime()}:00
+          {/* maybe a ternary operator for short break */}
+          {getTickingTime()}:{seconds.toString().padStart(2, '0')}
         </h1>
       </div>
       <button className='px-16 py-2 text-2xl rounded-md bg-[#E5E5E5] text-[#3969A0] uppercase'>
