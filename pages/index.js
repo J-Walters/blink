@@ -9,9 +9,18 @@ export default function Home() {
   const [longBreak, setLongBreak] = useState(10);
   const [seconds, setSecond] = useState(0);
   const [stage, setStage] = useState(0);
+  const [consumedSecond, setConsumedSecond] = useState(0);
   const [ticking, setTicking] = useState(false);
 
   const switchStage = (index) => {
+    const isYes =
+      consumedSecond && stage !== index
+        ? confirm('Are you sure you want to switch?')
+        : false;
+    if (isYes) {
+      reset();
+      setStage(index);
+    }
     setStage(index);
   };
 
@@ -35,12 +44,20 @@ export default function Home() {
     return updateStage[stage];
   };
 
+  const reset = () => {
+    setTicking(false);
+    setSecond(0);
+    setTimer(25);
+    setShortBreak(5);
+    setLongBreak(10);
+  };
+
   const clockTicking = () => {
     const minutes = getTickingTime();
     const setMinutes = updateMinute();
 
     if (minutes === 0 && seconds === 0) {
-      alert('Times up');
+      reset();
     } else if (seconds === 0) {
       setMinutes((minute) => minute - 1);
       setSecond(59);
@@ -50,8 +67,12 @@ export default function Home() {
   };
 
   useEffect(() => {
+    window.onbeforeunload = () => {
+      return consumedSecond ? 'Show warning' : '';
+    };
     const timers = setInterval(() => {
       if (ticking) {
+        setConsumedSecond((value) => value + 1);
         clockTicking();
       }
     }, 1000);
