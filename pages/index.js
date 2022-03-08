@@ -7,10 +7,9 @@ export default function Home() {
   const [timer, setTimer] = useState(20);
   const [shortBreak, setShortBreak] = useState(5);
   const [longBreak, setLongBreak] = useState(10);
-
-  const [seconds, setSeconds] = useState(0);
-
+  const [seconds, setSecond] = useState(0);
   const [stage, setStage] = useState(0);
+  const [ticking, setTicking] = useState(false);
 
   const switchStage = (index) => {
     setStage(index);
@@ -28,9 +27,9 @@ export default function Home() {
 
   const updateMinute = () => {
     const updateStage = {
-      0: timer,
-      1: shortBreak,
-      2: longBreak,
+      0: setTimer,
+      1: setShortBreak,
+      2: setLongBreak,
     };
 
     return updateStage[stage];
@@ -44,21 +43,23 @@ export default function Home() {
       alert('Times up');
     } else if (seconds === 0) {
       setMinutes((minute) => minute - 1);
-      setSeconds(59);
+      setSecond(59);
     } else {
-      setSeconds((second) => second - 1);
+      setSecond((second) => second - 1);
     }
   };
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      clockTicking();
+    const timers = setInterval(() => {
+      if (ticking) {
+        clockTicking();
+      }
     }, 1000);
 
     return () => {
-      clearInterval(timer);
+      clearInterval(timers);
     };
-  }, [seconds, timer, shortBreak, longBreak]);
+  }, [seconds, timer, shortBreak, longBreak, ticking]);
 
   return (
     <>
@@ -70,6 +71,8 @@ export default function Home() {
             switchStage={switchStage}
             getTickingTime={getTickingTime}
             seconds={seconds}
+            ticking={ticking}
+            setTicking={setTicking}
           />
           {/* <About /> */}
         </div>

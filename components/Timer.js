@@ -1,4 +1,11 @@
-export default function Timer({ stage, switchStage, getTickingTime, seconds }) {
+export default function Timer({
+  stage,
+  switchStage,
+  getTickingTime,
+  seconds,
+  ticking,
+  setTicking,
+}) {
   const options = ['Timer', 'Short Break', 'Long Break'];
 
   return (
@@ -25,8 +32,11 @@ export default function Timer({ stage, switchStage, getTickingTime, seconds }) {
           {getTickingTime()}:{seconds.toString().padStart(2, '0')}
         </h1>
       </div>
-      <button className='px-16 py-2 text-2xl rounded-md bg-[#E5E5E5] text-[#3969A0] uppercase'>
-        Start
+      <button
+        className='px-16 py-2 text-2xl rounded-md bg-[#E5E5E5] text-[#3969A0] font -bold uppercase'
+        onClick={() => setTicking((ticking) => !ticking)}
+      >
+        {ticking ? 'Stop' : 'Start'}
       </button>
       {/* </div> */}
     </div>
