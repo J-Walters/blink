@@ -74,6 +74,11 @@ export default function Home() {
     }
   };
 
+  const muteAlarm = () => {
+    alarmRef.current.pause;
+    alarmRef.current.currentTime;
+  };
+
   useEffect(() => {
     window.onbeforeunload = () => {
       return consumedSecond ? 'Show warning' : '';
@@ -102,6 +107,8 @@ export default function Home() {
             seconds={seconds}
             ticking={ticking}
             setTicking={setTicking}
+            muteAlarm={muteAlarm}
+            reset={reset}
           />
           {/* <About /> */}
         </div>

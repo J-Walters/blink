@@ -5,6 +5,7 @@ export default function Timer({
   seconds,
   ticking,
   setTicking,
+  reset,
 }) {
   const options = ['Timer', 'Short Break', 'Long Break'];
 
@@ -32,12 +33,18 @@ export default function Timer({
           {getTickingTime()}:{seconds.toString().padStart(2, '0')}
         </h1>
       </div>
+      <div></div>
       <button
-        className='px-16 py-2 text-2xl rounded-md bg-[#E5E5E5] text-[#3969A0] font -bold uppercase'
+        className='px-16 py-2 text-2xl rounded-md bg-[#E5E5E5] text-[#3969A0] font-bold uppercase'
         onClick={() => setTicking((ticking) => !ticking)}
       >
         {ticking ? 'Stop' : 'Start'}
       </button>
+      {ticking && (
+        <button className='uppercase text-white underline mt-5' onClick={reset}>
+          Reset
+        </button>
+      )}
       {/* </div> */}
     </div>
   );
