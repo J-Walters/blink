@@ -1,4 +1,6 @@
-export default function About() {
+import React from 'react';
+
+function About() {
   return (
     <div className='w-11/12 mx-auto mt-0 text-[#3969A0] pt-10'>
       <div>
@@ -33,3 +35,5 @@ export default function About() {
     </div>
   );
 }
+
+export default React.memo(About);

@@ -1,8 +1,9 @@
 import NavBar from '../components/NavBar';
 import Timer from '../components/Timer';
 import About from '../components/About';
-import { useEffect, useState, useRef } from 'react';
 import Alarm from '../components/Alarm';
+import Modal from '../components/Modal';
+import { useEffect, useState, useRef } from 'react';
 
 export default function Home() {
   const [timer, setTimer] = useState(20);
@@ -12,9 +13,21 @@ export default function Home() {
   const [stage, setStage] = useState(0);
   const [consumedSecond, setConsumedSecond] = useState(0);
   const [ticking, setTicking] = useState(false);
+  const [openSetting, setOpenSetting] = useState(false);
 
   const alarmRef = useRef();
+  const timerRef = useRef();
+  const shortBreakRef = useRef();
+  const longBreakRef = useRef();
 
+  const updateTimeDefaultValue = () => {
+    setTimer(timerRef.current.value);
+    setShortBreak(shortBreakRef.current.value);
+    setLongBreak(longBreakRef.current.value);
+    setOpenSetting(false);
+    setSecond(0);
+    setConsumedSecond(0);
+  };
   const switchStage = (index) => {
     const isYes =
       consumedSecond && stage !== index
@@ -50,9 +63,7 @@ export default function Home() {
   const reset = () => {
     setTicking(false);
     setSecond(0);
-    setTimer(25);
-    setShortBreak(5);
-    setLongBreak(10);
+    updateTimeDefaultValue();
   };
 
   const timeUp = () => {
@@ -74,10 +85,10 @@ export default function Home() {
     }
   };
 
-  const muteAlarm = () => {
-    alarmRef.current.pause;
-    alarmRef.current.currentTime;
-  };
+  // const muteAlarm = () => {
+  //   alarmRef.current.pause;
+  //   alarmRef.current.currentTime;
+  // };
 
   useEffect(() => {
     window.onbeforeunload = () => {
@@ -99,7 +110,7 @@ export default function Home() {
     <>
       <div className='bg-[#3969A0] min-h-screen font-mallanna'>
         <div className='max-w-2xl min-h-screen mx-auto'>
-          <NavBar />
+          <NavBar setOpenSetting={setOpenSetting} />
           <Timer
             stage={stage}
             switchStage={switchStage}
@@ -107,8 +118,16 @@ export default function Home() {
             seconds={seconds}
             ticking={ticking}
             setTicking={setTicking}
-            muteAlarm={muteAlarm}
+            // muteAlarm={muteAlarm}
             reset={reset}
+          />
+          <Modal
+            openSetting={openSetting}
+            setOpenSetting={setOpenSetting}
+            timerRef={timerRef}
+            shortBreakRef={shortBreakRef}
+            longBreakRef={longBreakRef}
+            updateTimeDefaultValue={updateTimeDefaultValue}
           />
           {/* <About /> */}
         </div>
@@ -116,6 +135,7 @@ export default function Home() {
           <div className='max-w-2xl min-h-screen mx-auto'>
             <About />
             <Alarm ref={alarmRef} />
+            {/* <Modal /> */}
           </div>
         </div>
       </div>

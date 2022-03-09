@@ -41,7 +41,10 @@ export default function Timer({
         {ticking ? 'Stop' : 'Start'}
       </button>
       {ticking && (
-        <button className='uppercase text-white underline mt-5' onClick={reset}>
+        <button
+          className='uppercase text-[#E5E5E5] underline mt-5'
+          onClick={reset}
+        >
           Reset
         </button>
       )}
