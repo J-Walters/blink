@@ -3,6 +3,7 @@ import Timer from '../components/Timer';
 import About from '../components/About';
 import Alarm from '../components/Alarm';
 import Modal from '../components/Modal';
+import Footer from '../components/Footer';
 import { useEffect, useState, useRef } from 'react';
 
 export default function Home() {
@@ -129,6 +130,7 @@ export default function Home() {
             longBreakRef={longBreakRef}
             updateTimeDefaultValue={updateTimeDefaultValue}
           />
+
           {/* <About /> */}
         </div>
         <div className='bg-[#E5E5E5] font-mallanna min-h-screen'>
@@ -137,6 +139,7 @@ export default function Home() {
             <Alarm ref={alarmRef} />
             {/* <Modal /> */}
           </div>
+          <Footer />
         </div>
       </div>
     </>
