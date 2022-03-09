@@ -1,7 +1,8 @@
 import NavBar from '../components/NavBar';
 import Timer from '../components/Timer';
 import About from '../components/About';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
+import Alarm from '../components/Alarm';
 
 export default function Home() {
   const [timer, setTimer] = useState(20);
@@ -11,6 +12,8 @@ export default function Home() {
   const [stage, setStage] = useState(0);
   const [consumedSecond, setConsumedSecond] = useState(0);
   const [ticking, setTicking] = useState(false);
+
+  const alarmRef = useRef();
 
   const switchStage = (index) => {
     const isYes =
@@ -52,12 +55,17 @@ export default function Home() {
     setLongBreak(10);
   };
 
+  const timeUp = () => {
+    reset();
+    alarmRef.current.play;
+  };
+
   const clockTicking = () => {
     const minutes = getTickingTime();
     const setMinutes = updateMinute();
 
     if (minutes === 0 && seconds === 0) {
-      reset();
+      timeUp();
     } else if (seconds === 0) {
       setMinutes((minute) => minute - 1);
       setSecond(59);
@@ -100,6 +108,7 @@ export default function Home() {
         <div className='bg-[#E5E5E5] font-mallanna min-h-screen'>
           <div className='max-w-2xl min-h-screen mx-auto'>
             <About />
+            <Alarm ref={alarmRef} />
           </div>
         </div>
       </div>
