@@ -8,7 +8,7 @@ import { useEffect, useState, useRef } from 'react';
 
 export default function Home() {
   const [timer, setTimer] = useState(20);
-  const [shortBreak, setShortBreak] = useState(5);
+  const [shortBreak, setShortBreak] = useState(1);
   const [longBreak, setLongBreak] = useState(10);
   const [seconds, setSecond] = useState(0);
   const [stage, setStage] = useState(0);

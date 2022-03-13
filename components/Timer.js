@@ -11,7 +11,7 @@ export default function Timer({
 
   return (
     <div className='text-neutral-200 w-10/12 mx-auto pt-5 flex flex-col justify-center items-center mt-10'>
-      <div className='flex flex-col justify-center items-center bg-[#6d6d6d] bg-opacity-30 py-10 px-20 rounded-md'>
+      <div className='flex flex-col w-10/12 justify-center items-center bg-[#6d6d6d] bg-opacity-30 py-10 px-20 rounded-md '>
         <div className='flex gap-5 items-center'>
           {options.map((option, index) => {
             return (

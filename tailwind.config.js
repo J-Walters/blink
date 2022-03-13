@@ -8,7 +8,7 @@ module.exports = {
         mallanna: ['Mallanna'],
       },
       colors: {
-        cyan: {
+        blue: {
           950: '#3969A0'
         }
       },
