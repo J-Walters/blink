@@ -7,7 +7,13 @@ module.exports = {
       fontFamily: {
         mallanna: ['Mallanna'],
       },
+      colors: {
+        cyan: {
+          950: '#3969A0'
+        }
+      },
     },
+
   },
   variants: {
     extend: {},

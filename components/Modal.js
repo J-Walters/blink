@@ -17,36 +17,34 @@ export default function ModalSetting({
   return (
     <>
       <div
-        className={`absolute h-full w-full left-0 top-0 bg-black bg-opacity-30 ${
-          openSetting ? '' : 'hidden'
-        }`}
+        className={`absolute h-full w-full left-0 top-0 bg-black bg-opacity-30 ${openSetting ? '' : 'hidden'
+          }`}
         onClick={() => setOpenSetting(false)}
       ></div>
       <div
-        className={`max-w-xl bg-white absolute sm:w-96 w-11/12 left-1/2 top-1/2 p-5 rounded-md ${
-          openSetting ? '' : 'hidden'
-        }`}
+        className={`max-w-xl bg-neutral-200 absolute sm:w-96 w-11/12 left-1/2 top-1/2 p-5 rounded-md ${openSetting ? '' : 'hidden'
+          }`}
         style={{
           transform: 'translate(-50%,-50%)',
         }}
       >
-        <div className='text-gray-400 flex justify-between items-center'>
+        <div className='text-[#6d6d6d] flex justify-between items-center'>
           <h1 className='uppercase font-bold tracking-wider'>Time setting</h1>
           <FiX
             className='text-2xl cursor-pointer'
             onClick={() => setOpenSetting(false)}
           />
         </div>
-        <div className='h-1 w-full bg-gray-400 mt-5 mb-5'></div>
+        <div className='h-1 w-full bg-[#6d6d6d] mt-5 mb-5'></div>
         <div className='flex gap-5'>
           {inputs.map((input, index) => {
             return (
               <div key={index}>
-                <h1 className='text-gray-400 text-sm'>{input.value}</h1>
+                <h1 className='text-[#6d6d6d]] text-sm'>{input.value}</h1>
                 <input
                   defaultValue={input.defaultValue}
                   type='number'
-                  className='w-full bg-gray-400 bg-opacity-30 py-2 rounded outline-none text-center'
+                  className='w-full bg-[#6d6d6d] bg-opacity-30 py-2 rounded outline-none text-center'
                   ref={input.ref}
                 />
               </div>
@@ -54,7 +52,7 @@ export default function ModalSetting({
           })}
         </div>
         <button
-          className='bg-green-500 uppercase w-full mt-5 text-white rounded py-2'
+          className='bg-blue-950 uppercase w-full mt-5 text-neutral-200 rounded py-2'
           onClick={updateTimeDefaultValue}
         >
           Save
