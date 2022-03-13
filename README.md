@@ -1,6 +1,32 @@
 <!-- This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
  -->
 ## Blink
+A web app that attempts to help its users reduce eye strain through timed work sessions.
+<div>
+ <img src='public/Screen-Recording-2022-03-12-at-1.gif'
+</div>
+ 
+ ## Tech Stack
+ 
+ <ul>
+  <li><strong>React:</strong> React is a free and open-source front-end JavaScript library for building user interfaces based on UI components. </li>
+  <li><strong>Tailwind CSS:</strong> Tailwind CSS is basically a utility-first CSS framework for rapidly building custom user interfaces</li>
+  <li><strong>Next.js:</strong> open-source web development framework built on top of Node.js enabling React based web applications functionalities such as server-side rendering and generating static websites.</li>
+ </ul>
+ 
+ ## Set Up
+ 
+ ``` 
+ npm install
+ npm run dev
+ ```
+ 
+ ## Next Steps
+ 
+ - [ ] User Authentication
+ - [ ] Symptom Tracker
+ 
+
 
 <!-- First, run the development server:
 
