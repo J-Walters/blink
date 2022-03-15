@@ -9,9 +9,9 @@ A web app that attempts to help its users reduce eye strain through timed work s
  ## Tech Stack
  
  <ul>
-  <li><strong>React:</strong> React is a free and open-source front-end JavaScript library for building user interfaces based on UI components. </li>
-  <li><strong>Tailwind CSS:</strong> Tailwind CSS is basically a utility-first CSS framework for rapidly building custom user interfaces</li>
-  <li><strong>Next.js:</strong> open-source web development framework built on top of Node.js enabling React based web applications functionalities such as server-side rendering and generating static websites.</li>
+  <li><strong>React:</strong> A free and open-source front-end JavaScript library for building user interfaces based on UI components. </li>
+  <li><strong>Tailwind CSS:</strong> A utility-first CSS framework for rapidly building custom user interfaces.</li>
+  <li><strong>Next.js:</strong> An open-source web development framework built on top of Node.js enabling React based web applications functionalities such as server-side rendering and generating static websites.</li>
  </ul>
  
  ## Set Up
